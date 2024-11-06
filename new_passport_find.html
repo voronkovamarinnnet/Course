@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменяем кириллицу на латиницу по клику</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .passport-container {
+            position: relative;
+            width: 600px;
+        }
+        .passport-image {
+            width: 100%;
+        }
+        .text-overlay {
+            position: absolute;
+            font-size: 20px;
+            color: #000;
+            font-weight: bold;
+        }
+        .surname {
+            top: 470px;
+            left: 255px;
+        }
+        .name {
+            top: 533px;
+            left: 235px;
+        }
+        .dob {
+            top: 595px;
+            left: 345px;
+        }
+        .custom-image {
+            position: absolute;
+            top: 495px;
+            left: 25px;
+            width: 167px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="passport-container">
+        <img src="Photo.jpg" alt="Фотография" class="custom-image">
+        <img src="IMG_8253.JPG" alt="Паспорт" class="passport-image">
+        <div class="text-overlay surname" id="surname">Воронкова</div>
+        <div class="text-overlay name" id="name">Марина</div>
+        <div class="text-overlay dob" id="dob">18.04.2005</div>
+    </div>
+
+    <script>
+        // Функция для изменения текста
+        function changeToLatin() {
+            // Смена текста на латинские символы
+            document.getElementById('surname').textContent = 'Voronkova';
+            document.getElementById('name').textContent = 'Marina';
+            document.getElementById('dob').textContent = '18.04.2005'; // Оставляем в том же формате, так как дата уже в латинице
+        }
+
+        // Добавляем событие на клик по всему документу
+        document.body.addEventListener('click', changeToLatin);
+    </script>
+</body>
+</html>

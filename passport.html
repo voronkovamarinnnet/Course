@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Паспорт</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .passport-container {
+            position: relative;
+            width: 600px; /* Задайте ширину контейнера под паспорт */
+        }
+        .passport-image {
+            width: 100%;
+        }
+        .text-overlay {
+            position: absolute;
+            font-size: 20px;
+            color: #000;
+            font-weight: bold;
+        }
+        /* Позиционирование для каждого текстового элемента */
+        .surname {
+            top: 470px; /* Подберите значение по вертикали */
+            left: 255px; /* Подберите значение по горизонтали */
+        }
+        .name {
+            top: 533px;
+            left: 235px;
+        }
+        .dob {
+            top: 595px;
+            left: 345px;
+        }
+        .gender {
+            top: 595px;
+            left: 250px;
+        }
+        .place-of-birth {
+            top: 628px;
+            left: 260px;
+        }
+        .issued-by {
+            top: 87px;
+            left: 120px;
+        }
+        .issue-date {
+            top: 180px;
+            left: 113px;
+        }
+        .serial-number_1{
+            top: 550px;
+            left: 523px;
+            transform: rotate(90deg);
+        }
+        .serial-number_2{
+            top: 200px;
+            left: 523px;
+            transform: rotate(90deg);
+        }
+        .code {
+            top: 180px;
+            left: 325px;
+        }
+        .p {
+            top: 310px;
+            left: 410px;
+        }
+        .custom-image {
+        position: absolute;
+        top: 495px;  /* Подберите нужное значение */
+        left: 25px; /* Подберите нужное значение */
+        width: 167px;
+        height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="passport-container">
+        <img src="Photo.jpg" alt="Фотография" class="custom-image">
+        <img src="IMG_8253.JPG" alt="Паспорт" class="passport-image">
+        <div class="text-overlay surname">Воронкова</div>
+        <div class="text-overlay name">Марина</div>
+        <div class="text-overlay dob">18.04.2005</div>
+        <div class="text-overlay gender">Ж</div>
+        <div class="text-overlay place-of-birth">Москва</div>
+        <div class="text-overlay issued-by">ГУ МВД по г. Москве</div>
+        <div class="text-overlay issue-date">12.08.2019</div>
+        <div class="text-overlay serial-number_1">1234567890</div>
+        <div class="text-overlay serial-number_2">1234567890</div>
+        <div class="text-overlay code">770-060</div>
+        <div class="text-overlay p">МВ</div>
+    </div>
+
+    
+</body>
+</html>

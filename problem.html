@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка треугольника</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input {
+            padding: 5px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Введите три числа и определите, существует ли треугольник с такими длинами сторон и, если существует, будет ли он прямоугольным.</h2>
+    <p>Введите длины сторон треугольника:</p>
+    <input type="number" id="x" placeholder="Сторона X" step="0.01">
+    <input type="number" id="y" placeholder="Сторона Y" step="0.01">
+    <input type="number" id="z" placeholder="Сторона Z" step="0.01">
+    <br>
+    <button onclick="checkTriangle()">Проверить</button>
+    <button onclick="sendResult()">Отправить</button>
+    
+    <div class="result" id="result"></div>
+
+    <script>
+        let resultMessage = ""; // Переменная для хранения результата
+
+        function checkTriangle() {
+            // Получаем значения сторон
+            let X = parseFloat(document.getElementById('x').value);
+            let Y = parseFloat(document.getElementById('y').value);
+            let Z = parseFloat(document.getElementById('z').value);
+            let resultDiv = document.getElementById('result');
+            
+            // Проверка на существование треугольника
+            if (X + Y > Z && Y + Z > X && Z + X > Y) {
+                // Если треугольник существует, проверяем на прямоугольность
+                let isRightAngled = (
+                    Math.abs(X * X + Y * Y - Z * Z) < 1e-6 ||
+                    Math.abs(Y * Y + Z * Z - X * X) < 1e-6 ||
+                    Math.abs(Z * Z + X * X - Y * Y) < 1e-6
+                );
+                
+                if (isRightAngled) {
+                    resultMessage = "Треугольник существует и является прямоугольным.";
+                } else {
+                    resultMessage = "Треугольник существует, но не является прямоугольным.";
+                }
+            } else {
+                resultMessage = "Треугольник с такими сторонами не существует.";
+            }
+            resultDiv.textContent = resultMessage;
+        }
+
+        function sendResult() {
+            // Данные, которые будут отправлены на сервер
+            const X = document.getElementById('x').value;
+            const Y = document.getElementById('y').value;
+            const Z = document.getElementById('z').value;
+
+            // Отправка данных на сервер
+            fetch('https://example.com/submit', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ X, Y, Z, result: resultMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Успех:', data);
+                alert("Результат отправлен на сервер");
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert("Не удалось отправить данные на сервер");
+            });
+        }
+    </script>
+</body>
+</html>

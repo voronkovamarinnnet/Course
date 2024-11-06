@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информационная среда</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение стилей -->
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на сайт!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" target="_self"><b>Главная страница</b></a></li>
+                <li><a href="page1.html" target="_self">Раздел 1</a></li>
+                <li><a href="page2.html" target="_self">Раздел 2</a></li>
+                <li><a href="http://www.example.com" target="_blank">Внешний сайт</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a id="top"></a>
+        <h2>Содержание</h2>
+        <ul>
+            <li><a href="#section1">Раздел 1</a></li>
+            <li><a href="#section2">Раздел 2</a></li>
+        </ul>
+
+        <h3 id="section1">Раздел 1</h3>
+        <p>Текст раздела 1...</p>
+        <a href="#top">К началу</a>
+
+        <h3 id="section2">Раздел 2</h3>
+        <p>Текст раздела 2...</p>
+        <a href="#top">К началу</a>
+
+        <h4>Галерея изображений</h4>
+        <div class="gallery">
+            <a href="large_image1.jpg" target="_blank"><img src="thumb1.jpg" alt="Изображение 1" width="50" height="50"></a>
+            <a href="large_image2.jpg" target="_blank"><img src="thumb2.jpg" alt="Изображение 2" width="50" height="50"></a>
+            <a href="large_image3.jpg" target="_blank"><img src="thumb3.jpg" alt="Изображение 3" width="50" height="50"></a>
+            <a href="large_image4.jpg" target="_blank"><img src="thumb4.jpg" alt="Изображение 4" width="50" height="50"></a>
+            <a href="large_image5.jpg" target="_blank"><img src="thumb5.jpg" alt="Изображение 5" width="50" height="50"></a>
+        </div>
+
+        <h4>Форма обратной связи</h4>
+        <form action="https://example.com/form" method="post">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Сообщение:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Все права защищены.</p>
+    </footer>
+</body>
+</html>
+
+# Страница с формами
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма отправки данных</title>
+</head>
+<body>
+    <h3>Отправка данных</h3>
+    <form action="https://example.com/send_data" method="post">
+        <label for="last_name">Фамилия:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="first_name">Имя:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="group">Группа:</label>
+        <input type="text" id="group" name="group">
+
+        <label for="phone">Мобильный телефон:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="date">Дата отправки:</label>
+        <input type="date" id="date" name="date" required>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

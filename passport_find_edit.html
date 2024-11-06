@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменяем кириллицу на латиницу по клику</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+        img {
+            margin-bottom: 15px; /* Отступ между фото и текстом */
+        }
+        p {
+            line-height: 1.2; /* Уменьшение межстрочного интервала */
+            margin: 5px 0; /* Уменьшение отступов между абзацами */
+        }
+        button {
+            margin-top: 20px; /* Отступ сверху для кнопки */
+            padding: 10px 20px; /* Размер кнопки */
+            font-size: 16px; /* Размер текста на кнопке */
+            cursor: pointer; /* Указатель для курсора */
+        }
+    </style>
+</head>
+<body>
+    <h1>Паспорт</h1>
+    <img src="Photo.jpg" alt="Фотография" width="150" height="200">
+    <p><strong>Фамилия:</strong> <span id="surname">Воронкова</span></p>
+    <p><strong>Имя:</strong> <span id="name">Марина</span></p>
+    <p><strong>Дата рождения:</strong> <span id="dob">18.04.2005</span></p>
+    <p><strong>Пол:</strong> Женский</p>
+    <p><strong>Место рождения:</strong> Москва</p>
+    <p><strong>Кем выдан:</strong> ГУ МВД по г. Москве</p>
+    <p><strong>Дата выдачи:</strong> 12.08.2019</p>
+    <p><strong>Серия и номер:</strong> 1234 567890</p>
+    
+    <button id="changeBtn">Изменить на латиницу</button>
+
+    <script>
+        const translitMap = {
+            'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
+            'Е': 'E', 'Ё': 'Yo', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
+            'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
+            'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T',
+            'У': 'U', 'Ф': 'F', 'Х': 'Kh', 'Ц': 'Ts', 'Ч': 'Ch',
+            'Ш': 'Sh', 'Щ': 'Shch', 'Ъ': '', 'Ы': 'Y', 'Ь': '',
+            'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya',
+            'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+            'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
+            'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+            'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+            'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch',
+            'ш': 'sh', 'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '',
+            'э': 'e', 'ю': 'yu', 'я': 'ya'
+        };
+
+        function toTranslit(text) {
+            return text.split('').map(char => translitMap[char] || char).join('');
+        }
+
+        document.getElementById("changeBtn").addEventListener("click", function() {
+            // Изменяем данные на латиницу
+            document.getElementById("surname").innerText = toTranslit("Воронкова");
+            document.getElementById("name").innerText = toTranslit("Марина");
+            document.getElementById("dob").innerText = "18.04.2005"; // Дата рождения останется в кириллице
+        });
+    </script>
+</body>
+</html>
